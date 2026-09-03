@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/fixtures';
+import { test } from '../fixtures/fixtures';
 
 test.describe('Login', () => {
     test('user can log in with valid credentials', async ({ loginPage }) => {
@@ -18,4 +18,10 @@ test.describe('Login', () => {
         await loginPage.login('', '');
         await loginPage.loginFailure('Epic sadface: Username is required');
      });
+
+    test('Locked out user gets an error message', async ({ loginPage }) => {
+        await loginPage.goto();
+        await loginPage.login('locked_out_user', 'secret_sauce');
+        await loginPage.loginFailure('Epic sadface: Sorry, this user has been locked out.');
+     })
 });
