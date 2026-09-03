@@ -8,14 +8,14 @@ test.describe('Login', () => {
     });
 
     test('wrong username and password shows specific error', async ({ loginPage }) => {
-    await loginPage.goto();
-    await loginPage.login('wrong_user', 'wrong_password');
-    await loginPage.loginFailure('Epic sadface: Username and password do not match any user in this service');
+        await loginPage.goto();
+        await loginPage.login('wrong_user', 'wrong_password');
+        await loginPage.loginFailure('Epic sadface: Username and password do not match any user in this service');
     });
 
     test('empty credentials shows an error', async ({ loginPage }) => {
-    await loginPage.goto();
-    await loginPage.login('', '');
-    await loginPage.loginFailure('Epic sadface: Username is required');
-});
+        await loginPage.goto();
+        await loginPage.login('', '');
+        await loginPage.loginFailure('Epic sadface: Username is required');
+     });
 });
