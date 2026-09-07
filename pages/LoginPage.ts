@@ -17,7 +17,7 @@ export class LoginPage extends BasePage {
         await this.loginButton.click();
     }
 
-    async loginSucces(): Promise<void> {
+    async loginSuccess(): Promise<void> {
         await expect(this.page).toHaveURL(/inventory/);
     }
 
